@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="message__container">
+    <header>
+      <h3>Message {{ currentUser }}</h3>
+      <input
+        type="text"
+        [(ngModel)]="recipient"
+        placeholder="Enter recipient id"
+        (ngModelChange)="updateRecipient()"
+      />
+    </header>
+    <div class="message__body">
+      <div class="message">
+        <div
+          [ngClass]="
+            message.from == currentId.toString()
+              ? 'from__message'
+              : 'to__message'
+          "
+          *ngFor="let message of messages"
+        >
+          <div class="message__content__container">
+            <p>
+              {{ message.message }}
+              <span>{{ message.from + "" + currentId }}</span>
+            </p>
+          </div>
+        </div>
+        <!-- <div class="from__message">
+          <div class="message__content__container">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
+              repellendus ab assumenda neque fugit non fugiat officiis? Nemo
+              similique quibusdam aliquid sed, eius quam quisquam quas iure
+              praesentium reprehenderit ea.
+              <span></span>
+            </p>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="input__container">
+        <textarea cols="30" rows="1" [(ngModel)]="message"></textarea>
+        <button type="button" (click)="sendMessage()">send</button>
+      </div>
+    </div>
+  </div>
+</div>

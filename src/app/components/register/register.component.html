@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="registration__container">
+    <div>
+      <header>
+        <h3>Create Channel</h3>
+      </header>
+      <div class="form__container">
+        <input type="text" [(ngModel)]="currentId" placeholder="Enter id" />
+        <input
+          type="text"
+          [(ngModel)]="currentUser"
+          placeholder="Enter username"
+        />
+        <button type="button" (click)="create()">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
